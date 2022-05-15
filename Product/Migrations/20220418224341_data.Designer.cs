@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Product.Models.Entites;
 
 namespace Product.Migrations
 {
     [DbContext(typeof(ProductDBContext))]
-    partial class ProductDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220418224341_data")]
+    partial class data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +99,7 @@ namespace Product.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("appUsers");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

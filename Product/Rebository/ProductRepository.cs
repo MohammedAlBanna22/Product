@@ -38,12 +38,12 @@ namespace Product.Rebository
 
         }
 
-        public Users ADDUsers(Customor customor)
+        public appUsers ADDUsers(Customor customor)
         {
             var url = addphoto(customor.image, "pic/Users/");
             customor.imageUrl = url;
-            var newUser = _mapper.Map<Users>(customor);
-            _context.Users.Add(newUser);
+            var newUser = _mapper.Map<appUsers>(customor);
+            _context.appUsers.Add(newUser);
             _context.SaveChanges();
             return newUser;
 

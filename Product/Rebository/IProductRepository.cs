@@ -10,6 +10,6 @@ namespace Product.Rebository
         string addphoto(IFormFile img, string filePath);
         string addphotoByOBJ(FoodProduct product, string filePath);
         Products AddProduct(FoodProduct viewproduct);
-        Users ADDUsers(Customor customor);
+        appUsers ADDUsers(Customor customor);
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Product.Models.Entites
 {
-    public class Users
+    public class appUsers
     {
         public int id { get; set; }
         public string Name { get; set; }

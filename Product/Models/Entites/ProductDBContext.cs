@@ -15,7 +15,7 @@ namespace Product.Models.Entites
         }
        
         public DbSet<Products> Products { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public DbSet<appUsers> appUsers { get; set; }
         public DbSet<Blogs> Blogs { get; set; }
     }
 }

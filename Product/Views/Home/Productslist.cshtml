@@ -1,0 +1,120 @@
+﻿
+@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+
+@using X.PagedList.Web.Common;
+
+
+
+
+@model List<Product.Models.Entites.Products>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Agropro</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/site/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="~/site/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/site/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/site/images/fevicon.png" type="image/gif" />
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="~/site/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="~/site/css/bootstrap-datepicker.min.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+<body class="main-layout inner_page service_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="~/site/images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- services -->
+    <div class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_left">
+                        <span>What We Do</span>
+                        <h2>SERVICES WE OFFER</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                @foreach (var item in Model.OrderByDescending(x => x.id))
+                {
+                    <div class="col-md-4">
+                        <div class="services_box_main">
+                            <div class="services_box text_align_left" width="200" style="height:600px">
+                                <figure><img src="@item.imageUrl" alt="#" width="400" style="height:300px" /></figure>
+                                <div class="veget">
+                                    <h3>@item.productName</h3>
+                                    <p>@item.productDescription</p>
+                                </div>
+                            </div>
+                            <a class="read_more" href="services.html">Read More</a>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    @*<div class="pull-right">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Productslist",
+           new
+                {
+                    page
+         }),
+         new PagedListRenderOptions
+         {
+             LiElementClasses = new string[] { "page-item" },
+             PageClasses = new string[] { "page-link" },
+             Display = PagedListDisplayMode.IfNeeded
+
+              })
+    </div>*@
+
+
+
+    <!-- end services -->
+    <!--  footer -->
+    <!-- Javascript files-->
+    <script src="~/site/js/jquery.min.js"></script>
+    <script src="~/site/js/bootstrap.bundle.min.js"></script>
+    <script src="~/site/js/jquery-3.0.0.min.js"></script>
+    <script src="~/site/js/owl.carousel.min.js"></script>
+    <script src="~/site/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/site/js/custom.js"></script>
+
+
+</body>
+
+</html>

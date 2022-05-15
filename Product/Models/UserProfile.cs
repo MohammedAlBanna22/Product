@@ -12,7 +12,7 @@ namespace Product.Models
         public UserProfile()
         {
             CreateMap<FoodProduct,Products>().ReverseMap().ForMember(dest => dest.image, act => act.Ignore());
-            CreateMap<Customor, Users>().ReverseMap();
+            CreateMap<Customor, appUsers>().ReverseMap();
             CreateMap<BlogView, Blogs>().ReverseMap();
         }
     }

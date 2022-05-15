@@ -1,8 +1,77 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
-    Layout = "_SiteLayout";
+  
 }
 
+<style>
+    #m {
+        background-color: white;
+    }
+</style>
+<div class="slider_main">
+    <!-- carousel code -->
+    <div id="banner1" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#banner1" data-slide-to="0" class="active"></li>
+            <li data-target="#banner1" data-slide-to="1"></li>
+            <li data-target="#banner1" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <picture>
+                    <source srcset="~/site/images/banner.jpg">
+
+                    <img srcset="~/site/images/banner.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption relative">
+
+                </div>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <picture>
+
+                    <img srcset="~/site/images/banner.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption relative">
+
+                </div>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="~/site/images/banner.jpg">
+                    <source srcset="~/site/images/banner.jpg">
+                    <source srcset="~/site/images/banner.jpg">
+                    <img srcset="~/site/images/banner.jpg" alt="responsive image" class="d-block img-fluid">
+                </picture>
+                <div class="carousel-caption relative">
+
+                </div>
+            </div>
+            <!-- /.carousel-item -->
+        </div>
+        <!-- /.carousel-inner -->
+        <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="willom">
+                    <h1> Agriculture Fram</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- about -->
 <div class="about">
     <div class="container-fluid">
@@ -48,43 +117,27 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-4">
-                <div class="services_box_main">
-                    <div class="services_box text_align_left">
-                        <figure><img src="~/site/images/service1.jpg" alt="#" /></figure>
-                        <div class="veget">
-                            <h3>FRESH<br>VEGETABLES</h3>
-                            <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+            @foreach (var item in ((List<Product.Models.Entites.Products>)ViewBag.addproduct).OrderByDescending(s => s.id).Take(3))
+            {
+                <div class="col-md-4">
+                    <div class="services_box_main">
+                        <div class="services_box text_align_left" width="200" style="height:600px">
+                            <figure><img src="@item.imageUrl" alt="#" width="400" style="height:300px" /></figure>
+                            <div class="veget">
+                                <h3>@item.productName</h3>
+                                <p>@item.productDescription</p>
+                            </div>
+
                         </div>
+                        <a class="read_more" href="services.html">Read More</a>
                     </div>
-                    <a class="read_more" href="services.html">Read More</a>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services_box_main">
-                    <div class="services_box text_align_left">
-                        <figure><img src="~/site/images/service2.jpg" alt="#" /></figure>
-                        <div class="veget">
-                            <h3>AGRICULTURE<br>PRODUCTS</h3>
-                            <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                        </div>
-                    </div>
-                    <a class="read_more" href="services.html">Read More</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services_box_main">
-                    <div class="services_box text_align_left">
-                        <figure><img src="~/site/images/service3.jpg" alt="#" /></figure>
-                        <div class="veget">
-                            <h3>ORGANIC<br>PRODUCTS</h3>
-                            <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                        </div>
-                    </div>
-                    <a class="read_more" href="services.html">Read More</a>
-                </div>
-            </div>
+            }
+
+
+
         </div>
     </div>
 </div>
@@ -115,66 +168,51 @@
                 <div class="container">
                     <div class="carousel-caption relative">
                         <div class="row d_flex">
-                            <div class="col-md-6">
-                                <div class="custom">
-                                    <div class="d_flex">
-                                        <i><img src="~/site/images/customer1.jpg" alt="#" /></i>
-                                        <div class="clint">
-                                            <h4>Dan Balan</h4>
-                                            <span>Client</span>
+                            @foreach (var item in ((List<Product.Models.Entites.appUsers>)ViewBag.addclient).OrderByDescending(s => s.id).Take(2))
+                            {
+                                <div class="col-md-6">
+                                    <div class="custom">
+                                        <div class="d_flex">
+                                            <i><img src="@item.imageUrl" alt="#" /></i>
+                                            <div class="clint">
+                                                <h4>@item.Name</h4>
+                                                <span>@item.Job</span>
+                                            </div>
                                         </div>
+                                        <p>@item.Description</p>
+                                        <img src="~/site/images/test.png" alt="#" />
                                     </div>
-                                    <p>readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their </p>
-                                    <img src="~/site/images/test.png" alt="#" />
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="custom">
-                                    <div class="d_flex">
-                                        <i><img src="~/site/images/customer2.jpg" alt="#" /></i>
-                                        <div class="clint">
-                                            <h4>Mor Balan</h4>
-                                            <span>Client</span>
-                                        </div>
-                                    </div>
-                                    <p>readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their </p>
-                                    <img src="~/site/images/test.png" alt="#" />
-                                </div>
-                            </div>
+                            }
+
+
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="carousel-item">
                 <div class="container">
                     <div class="carousel-caption relative">
                         <div class="row d_flex">
-                            <div class="col-md-6">
-                                <div class="custom">
-                                    <div class="d_flex">
-                                        <i><img src="~/site/images/customer1.jpg" alt="#" /></i>
-                                        <div class="clint">
-                                            <h4>Dan Balan</h4>
-                                            <span>Client</span>
+                            @foreach (var item in ((List<Product.Models.Entites.appUsers>)ViewBag.addclient).OrderByDescending(s => s.id).Skip(2).Take(2))
+                            {
+                                <div class="col-md-6">
+                                    <div class="custom">
+                                        <div class="d_flex">
+                                            <i><img src="@item.imageUrl" alt="#" /></i>
+                                            <div class="clint">
+                                                <h4>@item.Name</h4>
+                                                <span>@item.Job</span>
+                                            </div>
                                         </div>
+                                        <p>@item.Description</p>
+                                        <img src="~/site/images/test.png" alt="#" />
                                     </div>
-                                    <p>readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their </p>
-                                    <img src="~/site/images/test.png" alt="#" />
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="custom">
-                                    <div class="d_flex">
-                                        <i><img src="~/site/images/customer2.jpg" alt="#" /></i>
-                                        <div class="clint">
-                                            <h4>Mor Balan</h4>
-                                            <span>Client</span>
-                                        </div>
-                                    </div>
-                                    <p>readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their </p>
-                                    <img src="~/site/images/test.png" alt="#" />
-                                </div>
-                            </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -276,39 +314,21 @@
             </div>
         </div>
         <div class="row">
-            <div class=" col-md-4">
-                <div class="latest">
-                    <figure><img src="~/site/images/news1.jpg" alt="#" /></figure>
-                    <span>15<br>  March</span>
-                    <div class="nostrud">
-                        <h3>Alteration in somer</h3>
-                        <p>has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making iteditors </p>
-                        <a class="read_more" href="news.html">Read More</a>
+            @foreach (var item in ((List<Product.Models.Entites.Blogs>)ViewBag.addblog).OrderByDescending(s => s.id).Take(3))
+            {
+                <div class=" col-md-4">
+                    <div class="latest">
+                        <figure><img src="@item.imageUrl" alt="#" /></figure>
+                        <span>@item.date.ToString("dd MMM, yyyy")</span>
+                        <div class="nostrud">
+                            <h3>@item.title</h3>
+                            <p>@item.Description</p>
+                            <a class="read_more" href="news.html">Read More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class=" col-md-4">
-                <div class="latest box_desho">
-                    <figure><img src="~/site/images/news2.jpg" alt="#" /></figure>
-                    <span>15<br> March</span>
-                    <div class="nostrud">
-                        <h3>Alteration in somer</h3>
-                        <p>has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making iteditors </p>
-                        <a class="read_more" href="news.html">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class=" col-md-4">
-                <div class="latest">
-                    <figure><img src="~/site/images/news3.jpg" alt="#" /></figure>
-                    <span>15<br> March</span>
-                    <div class="nostrud">
-                        <h3>Alteration in somer</h3>
-                        <p>has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making iteditors </p>
-                        <a class="read_more" href="news.html">Read More</a>
-                    </div>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </div>
@@ -327,14 +347,14 @@
                 <form id="request" class="main_form">
                     <div class="row">
                         <div class="col-md-12 ">
-                            <input class="form_control" placeholder="Your Name" type="type" name=" Name">
+                            <input class="form_control" placeholder="Your Name" type="text" name=" Name">
                         </div>
                         <div class="col-md-12">
-                            <input class="form_control" placeholder="Phone Number" type="type" name="Phone Number">
+                            <input class="form_control" placeholder="Phone Number" type="number" name="Phone Number">
                         </div>
 
                         <div class="col-md-12">
-                            <input class="textarea" placeholder="Message" type="type" name="message">
+                            <input class="textarea" placeholder="Message" type="text" name="message">
                         </div>
                         <div class="col-md-12">
                             <div class="group_btn">
