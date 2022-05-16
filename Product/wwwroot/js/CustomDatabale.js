@@ -55,12 +55,10 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "responsive": true,
-        //"paging": true,
-        //"select": true,
-        //"order": [[0, "desc"]],
-      /*  dom: 'Bfrtip',*/
+        "search": true,
+      
         //Disable Search From Table
-        dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',
+        /*dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',*/
         language: {
             "infoFiltered": ""
         },//To Remove Filter From Footer
