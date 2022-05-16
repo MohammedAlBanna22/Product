@@ -55,6 +55,19 @@ namespace Product.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GetProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Product()
+        {
+            var products = _rep.GetProducts();
+            var recordTotal = products.Count();
+            var jsonData = new { recordsFiltered = recordTotal, recordTotal, data = products };
+            return Ok(jsonData);
+        }
 
     }
 }

@@ -37,7 +37,7 @@ namespace Product.Controllers
         public IActionResult Productslist( int? page)
         {
             var pageNumber = page ?? 1;
-            int pageSize =4 ;
+            //int pageSize =4 ;
             var item = _productDBContext.Products.ToList();
            // var item =  _productDBContext.Products.ToPagedList(pageNumber, pageSize).ToList();
           //  ViewData["product"] = _productDBContext.Products.ToPagedList(pageNumber, pageSize);
@@ -45,6 +45,7 @@ namespace Product.Controllers
             return View(item);
 
         }
+     
 
         public IActionResult Privacy()
         {

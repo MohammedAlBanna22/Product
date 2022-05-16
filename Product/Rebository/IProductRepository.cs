@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Product.Models;
 using Product.Models.Entites;
+using System.Collections.Generic;
 
 namespace Product.Rebository
 {
@@ -11,5 +12,6 @@ namespace Product.Rebository
         string addphotoByOBJ(FoodProduct product, string filePath);
         Products AddProduct(FoodProduct viewproduct);
         appUsers ADDUsers(Customor customor);
+        List<Products> GetProducts();
     }
 }

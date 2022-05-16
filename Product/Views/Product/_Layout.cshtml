@@ -34,7 +34,7 @@
 
     <!-- Main CSS-->
     <link href="~/dashbord/css/theme.css" rel="stylesheet" media="all">
-
+    @RenderSection("Styles", false)
 </head>
 
 <body class="animsition">
@@ -286,11 +286,11 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             @*<form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>*@
+                                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                    <button class="au-btn--submit" type="submit">
+                                        <i class="zmdi zmdi-search"></i>
+                                    </button>
+                                </form>*@
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
@@ -500,8 +500,10 @@
 
     <!-- Main JS-->
     <script src="~/dashbord/js/main.js"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
 
-
+    @RenderSection("Scripts", false)
 </body>
 
 </html>

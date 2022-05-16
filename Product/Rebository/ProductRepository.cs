@@ -84,7 +84,11 @@ namespace Product.Rebository
         }
       
 
-
+        public List<Products> GetProducts()
+        {
+            var products = _context.Products.ToList();
+            return (products);
+        }
 
 
     }
