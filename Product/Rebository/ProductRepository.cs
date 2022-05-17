@@ -89,6 +89,11 @@ namespace Product.Rebository
             var products = _context.Products.ToList();
             return (products);
         }
+        public List<appUsers> GetUsers()
+        {
+            var users = _context.appUsers.ToList();
+            return (users);
+        }
 
 
     }

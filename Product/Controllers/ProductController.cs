@@ -72,7 +72,7 @@ namespace Product.Controllers
             var sortDirecion = Request.Form["order[0][dir]"];
 
             IQueryable < Products > productview = _context.Products.Where(x => string.IsNullOrEmpty(search) ? true :
-           x.productName.Contains(search) ).AsQueryable();
+            x.productName.Contains(search) ).AsQueryable();
 
 
             var products = productview.Skip(skipe).Take(pageSize);
@@ -81,5 +81,28 @@ namespace Product.Controllers
             return Ok(jsonData);
         }
 
+
+        public IActionResult GetUsers()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Users()
+        {
+            var pageSize = int.Parse(Request.Form["length"]);
+            var skipe = int.Parse(Request.Form["start"]);
+            var search = Request.Form["search[value]"];
+            var sortColumn = Request.Form[string.Concat("columns[", Request.Form["order[0][column]"], "][name]")];
+            var sortDirecion = Request.Form["order[0][dir]"];
+
+            IQueryable<appUsers> userview = _context.appUsers.Where(x => string.IsNullOrEmpty(search) ? true :
+            x.Name.Contains(search)).AsQueryable();
+
+
+            var users = userview.Skip(skipe).Take(pageSize);
+            var recordTotal = _rep.GetUsers().Count();
+            var jsonData = new { recordsFiltered = recordTotal, recordTotal, data = users };
+            return Ok(jsonData);
+        }
     }
 }

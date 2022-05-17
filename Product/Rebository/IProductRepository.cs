@@ -13,5 +13,6 @@ namespace Product.Rebository
         Products AddProduct(FoodProduct viewproduct);
         appUsers ADDUsers(Customor customor);
         List<Products> GetProducts();
+        List<appUsers> GetUsers();
     }
 }
