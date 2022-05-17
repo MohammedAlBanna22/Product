@@ -187,20 +187,28 @@
                                 <li>
                                     <a asp-action="AddBlog" asp-controller="Product">AddBlog</a>
                                 </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
+
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts
-                            </a>
-                        </li>
-                        <li>
-                            <a href="table.html">
+
+                        <li class="active has-sub">
+
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-table"></i>Tables
                             </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a asp-action="GetProduct" asp-controller="Product">Products</a>
+                                </li>
+                                <li>
+                                    <a asp-action="GetUsers" asp-controller="Product">Users </a>
+                                </li>
+                                <li>
+                                    <a asp-action="GetBlogs" asp-controller="Product">Blogs</a>
+                                </li>
+                                
+                            </ul>
+
                         </li>
                         <li>
                             <a href="form.html">
@@ -233,6 +241,15 @@
                                 </li>
                             </ul>
                         </li>
+
+
+                        <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts
+                            </a>
+                        </li>
+
+
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements

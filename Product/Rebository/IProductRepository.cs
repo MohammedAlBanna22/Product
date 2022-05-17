@@ -12,6 +12,8 @@ namespace Product.Rebository
         string addphotoByOBJ(FoodProduct product, string filePath);
         Products AddProduct(FoodProduct viewproduct);
         appUsers ADDUsers(Customor customor);
+        List<Blogs> GetBlogs();
         List<Products> GetProducts();
+        List<appUsers> GetUsers();
     }
 }
